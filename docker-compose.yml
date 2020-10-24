@@ -6,8 +6,6 @@ services:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_DB=lucid"
       - "POSTGRES_PASSWORD=1234"
-    networks:
-      new:
     volumes:
       - /tmp/postgresdata:/var/lib/postgresql/data
     ports:
@@ -23,10 +21,3 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - 'db'
-    links:
-      - db:db
-    networks:
-      new:
-
-networks:
-  new:
