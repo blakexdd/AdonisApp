@@ -42,4 +42,23 @@ export default class AuthController {
     await auth.login(user);
     response.redirect('/currencies');
   }
+
+  public async login({auth, request, response}: HttpContextContract){
+    /**
+     * Getting login data
+     */
+    const email = request.input('email');
+    const password = request.input('password');
+    const rememberUser = !!request.input('remember_me');
+
+    /**
+     * Authenticating remembering user
+     */
+    await auth.attempt(email, password, rememberUser);
+
+    /**
+     * Redirecting to the page showing private content
+     */
+    response.redirect('/currencies');
+  }
 }

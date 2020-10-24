@@ -22,7 +22,10 @@ import Route from '@ioc:Adonis/Core/Route';
 
 Route.on('/').render('welcome');
 
-Route.on('/register').render('register');
+Route.on('login').render('login');
+Route.post('/login', 'AuthController.login');
+
+Route.on('register').render('register');
 Route.post('/register', 'AuthController.register');
 
 Route.get('/currencies', async ({ auth }) => {
