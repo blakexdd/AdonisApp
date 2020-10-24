@@ -5,8 +5,10 @@ export default class Currencies extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
-      table.timestamps(true)
+      table.increments('id');
+      table.string('base').unique().notNullable();
+      table.jsonb('data').notNullable();
+      table.timestamps(true);
     })
   }
 

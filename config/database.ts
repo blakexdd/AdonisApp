@@ -37,7 +37,7 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
     pg: {
       client: 'pg',
       connection: {
-        host: Env.get('DB_HOST', 'localhost') as string,
+        host: Env.get('DB_HOST', 'my_db') as string,
         port: Number(Env.get('DB_PORT', 5432)),
         user: Env.get('DB_USER', 'postgres') as string,
         password: Env.get('DB_PASSWORD', '1234') as string,
