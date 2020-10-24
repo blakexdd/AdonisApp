@@ -28,7 +28,6 @@ Route.post('/login', 'AuthController.login');
 Route.on('register').render('register');
 Route.post('/register', 'AuthController.register');
 
-Route.get('/currencies', async ({ auth }) => {
-  const user = await auth.authenticate();
-  return `Hello user! Your email address is ${user.email}`;
-})
+Route.get('/logout', 'AuthController.logout');
+
+Route.get('/currencies', 'CurrenciesController.get');

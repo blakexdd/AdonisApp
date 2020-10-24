@@ -61,4 +61,10 @@ export default class AuthController {
      */
     response.redirect('/currencies');
   }
+
+  public async logout({response, auth}: HttpContextContract){
+    await auth.logout();
+
+    response.redirect("/");
+  }
 }
