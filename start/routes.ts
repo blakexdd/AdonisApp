@@ -20,7 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route';
 
-Route.on('/').render('welcome');
+Route.get('/', 'MainsController.main');
 
 Route.on('login').render('login');
 Route.post('/login', 'AuthController.login');
